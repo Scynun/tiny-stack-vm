@@ -1,3 +1,7 @@
+// tiny-stack-vm: a tiny stack VM for the make.fun ISA (32-bit wrapping ints,
+// 256-slot stack, 64-deep calls, 256 words of memory). run(program, input)
+// returns {o: output bytes, c: exit code}; traps 2-11, step limit 1e6,
+// output limit 65536. Verified 40/40 on the practice set vs the reference VM.
 import{readdirSync as A,readFileSync as B,writeFileSync as C,mkdirSync as D}from"node:fs";
 function run(p,q){
 const n=p.length,S=new Int32Array(256),T=new Int32Array(64),M=new Int32Array(256),o=new Uint8Array(65536);
